@@ -67,7 +67,7 @@ namespace DoubleList
             var current = _tail;
             while (current != null)
             {
-                outpot += $"{current.Prev} <=> ";
+                outpot += $"{current.Data} <=> ";
                 current = current.Prev;
             }
             return outpot;
