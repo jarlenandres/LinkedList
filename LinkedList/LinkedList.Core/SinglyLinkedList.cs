@@ -51,5 +51,39 @@ namespace LinkedList.Core
             Console.Write("null");
             Console.WriteLine();
         }
+
+        public bool Contains(T data)
+        {
+            SimpleNode<T> current = _head!;
+            while (current != null)
+            {
+                if (current.Data!.Equals(data))
+                {
+                    return true;
+                }
+                current = current.Next!;
+            }
+            return false;
+        }
+
+        public void Remove(T data)
+        {
+            if (_head == null)
+            {
+                return;
+            }
+
+            if (_head.Data!.Equals(data))
+            {
+                _head = _head.Next;
+                return;
+            }
+            
+            SimpleNode<T> current = _head;
+            while (current.Next != null && !current.Next.Data!.Equals(data))
+            {
+                current = current.Next;
+            }
+        }
     }
 }

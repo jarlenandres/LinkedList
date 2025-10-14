@@ -23,6 +23,13 @@ do
         case "3":
             list.PrintList();
             break;
+        case "4":
+            Console.Write("Enter the value: ");
+            Console.Write($"The result is {list.Contains(Console.ReadLine()!)}");
+            break;
+        case "5":
+            list.Remove(Console.ReadLine()!);
+            break;
         default:
             Console.WriteLine("Invalid option. Please try again.");
             break;
@@ -36,6 +43,8 @@ string Menu()
     Console.WriteLine("1. Insert at biginning.");
     Console.WriteLine("2. Insert at end.");
     Console.WriteLine("3. Print the list.");
+    Console.WriteLine("4. Search in the list.");
+    Console.WriteLine("5. Remove the first in the list.");
     Console.WriteLine("0. Exit.");
     Console.Write("Enter your option: ");
     return Console.ReadLine()!;
