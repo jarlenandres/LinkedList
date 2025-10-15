@@ -51,26 +51,55 @@ namespace DoubleList
 
         public string GetForward()
         {
-            var outpot = string.Empty;
+            var output = string.Empty;
             var current = _head;
             while (current != null)
             {
-                outpot += $"{current.Data} <=> ";
+                output += $"{current.Data} <=> ";
                 current = current.Next;
             }
-            return outpot;
+            return output.Substring(0, output.Length - 5);
         }
 
         public string GetBackward()
         {
-            var outpot = string.Empty;
+            var output = string.Empty;
             var current = _tail;
             while (current != null)
             {
-                outpot += $"{current.Data} <=> ";
+                output += $"{current.Data} <=> ";
                 current = current.Prev;
             }
-            return outpot;
+            return output.Substring(0, output.Length - 5);
+        }
+
+        public void Remove(T data)
+        {
+            var current = _head;
+            while (current != null)
+            {
+                if (current.Data!.Equals(data))
+                {
+                    if (current.Prev != null)
+                    {
+                        current.Prev.Next = current.Next;
+                    }
+                    else
+                    {
+                        _head = current.Next;
+                    }
+                    if (current.Next != null)
+                    {
+                        current.Next.Prev = current.Prev;
+                    }
+                    else
+                    {
+                        _tail = current.Prev;
+                    }
+                    break;
+                }
+                current = current.Next;
+            }
         }
     }
 }

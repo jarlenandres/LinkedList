@@ -84,6 +84,31 @@ namespace LinkedList.Core
             {
                 current = current.Next;
             }
+
+            if (current.Next != null)
+            {
+                current.Next = current.Next.Next;
+            }
+        }
+
+        public void Reverse()
+        {
+            SimpleNode<T> prev = null!;
+            SimpleNode<T> current = _head!;
+            SimpleNode<T> next = null!;
+            while (current != null)
+            {
+                next = current.Next!;
+                current.Next = prev;
+                prev = current;
+                current = next;
+            }
+            _head = prev;
+        }
+
+        public void ClearList()
+        {
+            _head = null;
         }
     }
 }

@@ -13,11 +13,19 @@ do
             break;
         case "1":
             Console.Write("Enter the value: ");
-            list.InsertAtBeginning(Console.ReadLine()!);
+            var dataAtBeginning = Console.ReadLine()!;
+            if (dataAtBeginning != null)
+            { 
+                list.InsertAtBeginning(dataAtBeginning);
+            }
             break;
         case "2":
             Console.Write("Enter the value: ");
-            list.InsertAtEnd(Console.ReadLine()!);
+            var dataAtEnd = Console.ReadLine()!;
+            if (dataAtEnd != null)
+            { 
+                list.InsertAtEnd(dataAtEnd);
+            }
             break;
         case "3":
             Console.WriteLine(list.GetForward());
@@ -25,13 +33,15 @@ do
         case "4":
             Console.WriteLine(list.GetBackward());
             break;
-        //case "4":
-        //    Console.Write("Enter the value: ");
-        //    Console.Write($"The result is {list.Contains(Console.ReadLine()!)}");
-        //    break;
-        //case "5":
-        //    list.Remove(Console.ReadLine()!);
-        //    break;
+        case "5":
+            Console.Write("Enter the data to remove: ");
+            var remove = Console.ReadLine()!;
+            if (remove != null)
+            { 
+                list.Remove(remove);
+                Console.WriteLine("Item removed.");
+            }
+            break;
         default:
             Console.WriteLine("Invalid option. Please try again.");
             break;
@@ -47,8 +57,7 @@ string Menu()
     Console.WriteLine("2. Insert at end.");
     Console.WriteLine("3. Print the list Forward.");
     Console.WriteLine("4. Print the list Backward.");
-    Console.WriteLine("5. Search in the list.");
-    Console.WriteLine("6. Remove the first in the list.");
+    Console.WriteLine("5. Remove.");
     Console.WriteLine("0. Exit.");
     Console.Write("Enter your option: ");
     return Console.ReadLine()!;

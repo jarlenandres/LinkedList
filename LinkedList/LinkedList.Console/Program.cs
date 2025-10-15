@@ -28,7 +28,16 @@ do
             Console.Write($"The result is {list.Contains(Console.ReadLine()!)}");
             break;
         case "5":
+            Console.Write("Enter the value: ");
             list.Remove(Console.ReadLine()!);
+            break;
+        case "6":
+            list.Reverse();
+            Console.WriteLine("List reversed.");
+            break;
+        case "7":
+            list.ClearList();
+            Console.WriteLine("List cleaned.");
             break;
         default:
             Console.WriteLine("Invalid option. Please try again.");
@@ -42,9 +51,11 @@ string Menu()
     Console.WriteLine();
     Console.WriteLine("1. Insert at biginning.");
     Console.WriteLine("2. Insert at end.");
-    Console.WriteLine("3. Print the list.");
-    Console.WriteLine("4. Search in the list.");
-    Console.WriteLine("5. Remove the first in the list.");
+    Console.WriteLine("3. Print list.");
+    Console.WriteLine("4. Search.");
+    Console.WriteLine("5. Remove item.");
+    Console.WriteLine("6. Reverse.");
+    Console.WriteLine("7. Clear all list.");
     Console.WriteLine("0. Exit.");
     Console.Write("Enter your option: ");
     return Console.ReadLine()!;
